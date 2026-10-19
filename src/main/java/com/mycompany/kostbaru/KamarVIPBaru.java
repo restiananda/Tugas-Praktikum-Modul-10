@@ -9,7 +9,7 @@ package com.mycompany.kostbaru;
  * @author resti
  */
 
-public class KamarVIPBaru extends DataKamar {
+public class KamarVIPBaru extends DataKamar implements BisaDipesan, BisaDibersihkan {
 
     private boolean fasilitasPremium;
 
@@ -19,10 +19,18 @@ public class KamarVIPBaru extends DataKamar {
     }
 
     @Override
-    public void tampilkanInfo() {
-        super.tampilkanInfo();
+    public void tampilkanFasilitas() {
         System.out.println("Jenis: VIP");
         System.out.println("Fasilitas Premium: " 
                 + (fasilitasPremium ? "Ada" : "Tidak Ada"));
+    }
+    @Override
+    public void pesanKamar() {
+        System.out.println("Kamar VIP berhasil dipesan");
+    }
+    
+    @Override
+    public void bersihkanKamar() {
+        System.out.println("Kamar VIP selesai dibersihkan");
     }
 }

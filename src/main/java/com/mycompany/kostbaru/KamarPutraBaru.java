@@ -9,7 +9,7 @@ package com.mycompany.kostbaru;
  * @author resti
  */
 
-public class KamarPutraBaru extends DataKamar {
+public class KamarPutraBaru extends DataKamar implements BisaDipesan{
     
     private boolean fasilitasAC;
     
@@ -19,9 +19,13 @@ public class KamarPutraBaru extends DataKamar {
     }
     
     @Override
-    public void tampilkanInfo() {
-        super.tampilkanInfo();
+    public void tampilkanFasilitas() {
         System.out.println("Jenis: Putra");
         System.out.println("AC: " + (fasilitasAC ? "Ada" : "Tidak Ada"));
+    }
+    
+    @Override
+    public void pesanKamar() {
+        System.out.println("Kamar puta baru berhasil dipesan");
     }
 }

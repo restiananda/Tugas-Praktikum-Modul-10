@@ -13,7 +13,6 @@ public class KostBaru {
         System.out.println();
         System.out.println("=== PROSES ===");
         kamar.tampilkanInfo();
-        System.out.println("Proses berhasil dilakukan.");
     }
     
     public static void main(String[] args) {
@@ -56,7 +55,6 @@ public class KostBaru {
                     
                     System.out.print("Nomor kamar: ");
                     int nomorBaru = input.nextInt();
-                    
                     input.nextLine();
                     
                     System.out.print("Nama penghuni: ");
@@ -65,7 +63,7 @@ public class KostBaru {
                     System.out.print("Harga kamar: ");
                     double hargaBaru = input.nextDouble();
                     
-                    if (tipe ==1) {
+                    if (tipe == 1) {
                         System.out.print("Apakah ada AC? (true/false): ");
                         boolean ac = input.nextBoolean();
                         
@@ -117,13 +115,21 @@ public class KostBaru {
                     
                     for (DataKamar kamar : daftarKamar){
                         if (kamar.getNomor() == nomorCari) {
+                            ditemukan = true;
                             
                             prosesKamar(kamar);
+                            if (kamar instanceof BisaDipesan){
+                                BisaDipesan pesan = (BisaDipesan) kamar;
+                                pesan.pesanKamar();
+                            }
+                            if (kamar instanceof BisaDibersihkan) {
+                                BisaDibersihkan bersih = (BisaDibersihkan) kamar;
+                                bersih.bersihkanKamar();
+                            }
                             
-                            System.out.println();
-                            kamar.tampilkanInfo("Data diproses menggunakan metode overload.");
+                            kamar.tampilkanInfo("Data diproses dengan metode overload");
                             
-                            ditemukan = true;
+                            break;
                         }
                     }
                     

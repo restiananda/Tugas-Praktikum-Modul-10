@@ -8,11 +8,12 @@ package com.mycompany.kostbaru;
  *
  * @author resti
  */
-public class DataKamar {
+public abstract class DataKamar {
     
     private int nomor;
     private String penghuni;
     private double harga;
+    
     private static int jumlahKamar = 0;
     
     public DataKamar(int nomor, String penghuni, double harga) {
@@ -20,12 +21,6 @@ public class DataKamar {
         this.penghuni = penghuni;
         this.harga = harga;
         jumlahKamar++;
-    }
-    
-    public DataKamar(int nomor, String penghuni) {
-        this.nomor = nomor;
-        this.penghuni = penghuni;
-        this.harga = 500000;
     }
     
     public int getNomor() {
@@ -48,10 +43,13 @@ public class DataKamar {
         this.harga = harga;
     }
     
+    public abstract void tampilkanFasilitas();
+    
     public void tampilkanInfo() {
         System.out.println("Kamar: " + nomor);
         System.out.println("Penghuni: " + penghuni);
         System.out.println("Harga: " + harga);
+        tampilkanFasilitas();
     }
     
     public void tampilkanInfo(String tambahan) {
